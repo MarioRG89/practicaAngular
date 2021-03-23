@@ -1,6 +1,6 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, ElementRef, NgModule, OnInit, ViewChild } from '@angular/core';
 
-import{NgbModal} from '@ng-bootstrap/ng-bootstrap'
+import{NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'app-pop-up-login',
@@ -8,8 +8,13 @@ import{NgbModal} from '@ng-bootstrap/ng-bootstrap'
   styleUrls: ['./pop-up-login.component.css']
 })
 export class PopUpLoginComponent implements OnInit {
- constructor(public modal : NgbModal){}
+@ViewChild('contenido',{static:false}) contenido:NgbModalRef;
+ constructor(private modal : NgbModal){}
  ngOnInit(){
 
+ }
+ openLg(){
+   console.log(this.contenido)
+   this.modal.open(this.contenido);
  }
 }
