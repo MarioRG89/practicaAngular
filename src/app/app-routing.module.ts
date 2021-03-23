@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EquiposComponent } from './equipos/equipos.component';
+import { HeaderComponent } from './header/header.component';
+import { JugadoresComponent } from './jugadores/jugadores.component';
+import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+ {path:'',redirectTo:'/equipos',pathMatch:'full'},
+  {path:'equipos',component:EquiposComponent},
+  {path:'jugadores',component:JugadoresComponent},
+
+  {path:'**',pathMatch:'full',redirectTo:'/equipos'}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
