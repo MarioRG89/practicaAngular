@@ -9,8 +9,7 @@ const routes: Routes = [
  {path:'',redirectTo:'/equipos',pathMatch:'full'},
   {path:'equipos',component:EquiposComponent},
   {path:'jugadores',component:JugadoresComponent},
-
-  {path:'**',pathMatch:'full',redirectTo:'/equipos'}
+  {path:'popup',component:PopUpLoginComponent}
 ];
 
 @NgModule({

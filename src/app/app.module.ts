@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    NgModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
