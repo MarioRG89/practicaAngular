@@ -1,7 +1,7 @@
 <div *ngIf="vermodal"></div>
 <ng-template #visualizaModal let-modal>
-  <!-- <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+  <div class="modal-header">
+    <h4 class="modal-title">Inicio de sesion usuario</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -12,17 +12,20 @@
       <input type="text" name="name" class="form-control" [(ngModel)]="name" >
       <label for="email">Email</label>
       <input type="text" name="email" class="form-control" >
-      <label for="password"></label>
+      <label for="password">Contraseña</label>
       <input type="password" name="password" class="form-control" >
+      <label for="ligas">Liga</label>
+      <select>
+         <option *ngFor="let liga of ligas">{{liga.name}}</option>
+      </select>
+
     </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close()">Cerrar</button>
     <button type="button" class="btn btn-primary" (click)="enviar()">Enviar</button>
-  </div> -->
-  <div>
-    Hola mundo
   </div>
+  
 </ng-template>
 
 <!-- <button class="btn btn-outline-primary mb-2 mr-2" (click)="open()">Abrir Modal</button> -->
