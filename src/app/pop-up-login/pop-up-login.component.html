@@ -1,5 +1,6 @@
-<ng-template #content let-modal>
-  <div class="modal-header">
+<div *ngIf="vermodal"></div>
+<ng-template #visualizaModal let-modal>
+  <!-- <div class="modal-header">
     <h4 class="modal-title">Modal title</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
       <span aria-hidden="true">&times;</span>
@@ -17,6 +18,11 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close()">Cerrar</button>
+    <button type="button" class="btn btn-primary" (click)="enviar()">Enviar</button>
+  </div> -->
+  <div>
+    Hola mundo
   </div>
 </ng-template>
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="open()">Abrir Modal</button>
+
+<!-- <button class="btn btn-outline-primary mb-2 mr-2" (click)="open()">Abrir Modal</button> -->

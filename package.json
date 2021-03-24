@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "~11.2.5",
     "@angular/router": "~11.2.5",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
-    "bootstrap": "^3.4.1",
+    "bootstrap": "^4.6.0",
     "ng-dialog": "^1.4.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

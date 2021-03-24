@@ -1,9 +1,9 @@
 <div class="container">
   
-  <app-header></app-header>
+  <app-header [usuario]="nombreSesion"></app-header>
   <app-menu></app-menu>
   <router-outlet></router-outlet>
-  <app-pop-up-login></app-pop-up-login>
+  <app-pop-up-login  (enviarDatos)="guardarDatos($event)"></app-pop-up-login>
 </div>
 
 

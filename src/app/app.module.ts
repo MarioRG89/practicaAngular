@@ -9,7 +9,8 @@ import { JugadoresComponent } from './jugadores/jugadores.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
-
+import { EventosComponent } from './eventos/eventos.component';
+import{HttpClientModule} from '@angular/common/http'
 
 
 
@@ -21,13 +22,15 @@ import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
     JugadoresComponent,
     FooterComponent,
     MenuComponent,
-    PopUpLoginComponent
+    PopUpLoginComponent,
+    EventosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
    
   ],
   providers: [],

@@ -6,5 +6,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  
+  nombreSesion='';
+  guardarDatos(nomUsuario){
+    this.nombreSesion=nomUsuario;
+  }
 }
