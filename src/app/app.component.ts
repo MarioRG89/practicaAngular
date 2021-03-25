@@ -10,12 +10,9 @@ export class AppComponent  {
   nombreSesion='';
   objetoLiga={};
   guardarDatos(nomUsuario){
-    console.log(nomUsuario);
     this.nombreSesion=nomUsuario;
   }
   guardarIdLiga(liga){
-    console.log(liga);
     this.objetoLiga=liga;
-    console.log("pedropo",this.objetoLiga);
   }
 }

@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { PeticionesService } from '../servicios/peticiones.service';
 
@@ -17,10 +18,11 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   formulario:FormGroup
   nombre:string='';
   vermodal:boolean=false;
+  ligaId:number=1;
   objetoLiga={};
   ligas=[];
   ngOnInit() {
-    this.obtenerLigas();
+    // this.obtenerLigas();
    this.iniciarFormulario();
     
   }
@@ -32,7 +34,7 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   }
   
 
-  constructor(private modalService: NgbModal,private http: HttpClient,private peticiones:PeticionesService) { }
+  constructor(private modalService: NgbModal,private peticiones:PeticionesService,private router:Router,private route:ActivatedRoute) { }
 
   open() {
     console.log(this.contenido);
@@ -51,26 +53,30 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
     if(this.formulario.valid){
       modal.close();
     }
-    
+    this.iraEquipos();
   }
   obtenerLigas(){
-    this.peticiones.getLigas().subscribe(data => {
-      for (let index = 0; index < 100; index++) {
-          this.ligas.push(data.api.leagues[index]);
-      }
-    });
+    // this.peticiones.getLigas().subscribe(data => {
+    //   for (let index = 0; index < 100; index++) {
+    //       this.ligas.push(data.api.leagues[index]);
+    //   }
+    // });
   }
 
   private iniciarFormulario(){
-    let nombreUsuario='';
-    let emailUsuario='';
-    let passwordUsuario='';
+    
     let selectUsuario={};
     this.formulario= new FormGroup({
-      'nombre':new FormControl(nombreUsuario,Validators.required),
-      'email': new FormControl(emailUsuario,[Validators.required,Validators.email]),
-      'password':new FormControl(passwordUsuario,[Validators.required,Validators.minLength(6)]),
+      'nombre':new FormControl(null,Validators.required),
+      'email': new FormControl(null,[Validators.required,Validators.email]),
+      'password':new FormControl(null,[Validators.required,Validators.minLength(6)]),
       'selectLiga':new FormControl(null,Validators.required)
     })
+  }
+
+  iraEquipos(){
+   console.log(this.ligaId);
+    
+   this.router.navigate(["equipos",this.ligaId]);
   }
 }

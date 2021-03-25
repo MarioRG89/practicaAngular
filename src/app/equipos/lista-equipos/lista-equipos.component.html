@@ -1,0 +1,17 @@
+<div class="row">
+
+  <input class="col-xs-12" type="text" name="buscador" placeholder="....">
+  <div class="list-group col-xs-6">
+    <a [routerLink]="[ './', 2 ]" class="list-group-item list-group-item-action "><img src="">
+      Cras justo odio
+    </a>
+    <a [routerLink]="[ '/jugadores']" *ngFor="let equipo of listaEquipos" href="#"
+      class="list-group-item list-group-item-action">{{equipo.name}}</a>
+    <a [routerLink]="[ '/jugadores']" class="list-group-item list-group-item-action">Morbi leo risus</a>
+    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+    <a href="#" class="list-group-item list-group-item-action ">Vestibulum at eros</a>
+  </div>
+  <router-outlet></router-outlet>
+
+
+</div>

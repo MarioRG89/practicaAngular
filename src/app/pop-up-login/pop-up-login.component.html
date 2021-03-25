@@ -19,9 +19,9 @@
         <input type="password" name="password" class="form-control" formControlName='password'  >
         <span class="text-danger" *ngIf="!formulario.get('password').valid && formulario.get('password').touched">Formato password no correcto</span><br>
         <label for="ligas">Liga</label><br>
-        <select [(ngModel)]="objetoLiga" formControlName='selectLiga' required>
-           <option value="none" selected >Selecciona una liga</option>
-           <option *ngFor="let liga of ligas" [ngValue]="liga" >{{liga.name}}</option>
+        <select [(ngModel)]="objetoLiga" formControlName='selectLiga'  required>
+           <option value=1 selected >Selecciona una liga</option>
+           <option *ngFor="let liga of ligas" [ngValue]="liga"  >{{liga.name}}</option>
         </select> 
         
       </div>

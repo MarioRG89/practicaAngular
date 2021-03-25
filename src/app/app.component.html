@@ -1,7 +1,6 @@
 <div class="container-fluid">
-  
   <app-header [usuario]="nombreSesion" [liga]="objetoLiga"></app-header>
-  <app-menu></app-menu>
+  <app-menu [liga]="objetoLiga"></app-menu>
   <router-outlet></router-outlet>
   <app-pop-up-login  (enviarDatosUsuario)="guardarDatos($event)" (enviarDatosLiga)="guardarIdLiga($event)"></app-pop-up-login>
 </div>

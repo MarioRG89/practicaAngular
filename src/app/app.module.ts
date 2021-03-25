@@ -10,7 +10,9 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
 import { EventosComponent } from './eventos/eventos.component';
-import{HttpClientModule} from '@angular/common/http'
+import{HttpClientModule} from '@angular/common/http';
+import { ListaEquiposComponent } from './equipos/lista-equipos/lista-equipos.component';
+import { FiltroPipe } from './pipes/filtro.pipe'
 
 
 
@@ -23,7 +25,9 @@ import{HttpClientModule} from '@angular/common/http'
     FooterComponent,
     MenuComponent,
     PopUpLoginComponent,
-    EventosComponent
+    EventosComponent,
+    ListaEquiposComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,
