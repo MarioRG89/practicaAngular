@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { PeticionesService } from '../servicios/peticiones.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   ligas=[];
   ngOnInit() {
     this.obtenerLigas();
-   this.inicarFormulario();
+   this.iniciarFormulario();
     
   }
   ngAfterViewInit() {
@@ -31,7 +32,7 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   }
   
 
-  constructor(private modalService: NgbModal,private http: HttpClient) { }
+  constructor(private modalService: NgbModal,private http: HttpClient,private peticiones:PeticionesService) { }
 
   open() {
     console.log(this.contenido);
@@ -53,19 +54,14 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
     
   }
   obtenerLigas(){
-    this.http.get<any>("https://api-football-v1.p.rapidapi.com/v2/leagues/type/league", {
-    headers: new HttpHeaders({
-    "x-rapidapi-key": "8c028958c1msh04482df207ee55cp1d2d53jsn395d3438a725",
-    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
-    })
-    }).subscribe(data => {
-       for (let index = 0; index < 100; index++) {
-         this.ligas.push(data.api.leagues[index]);
-       }
+    this.peticiones.getLigas().subscribe(data => {
+      for (let index = 0; index < 100; index++) {
+          this.ligas.push(data.api.leagues[index]);
+      }
     });
   }
 
-  private inicarFormulario(){
+  private iniciarFormulario(){
     let nombreUsuario='';
     let emailUsuario='';
     let passwordUsuario='';
