@@ -11,18 +11,22 @@
       <div class="form-group">
         <label for="name">Nombre</label>
         <input type="text" name="name" class="form-control" formControlName='nombre' [(ngModel)]="nombre"  >
+        <span class="text-danger" *ngIf="!formulario.get('nombre').valid && formulario.get('nombre').touched">No ha introducido el nombre</span><br>
         <label for="email">Email</label>
         <input type="text" name="email" class="form-control" formControlName='email' >
+        <span class="text-danger" *ngIf="!formulario.get('email').valid && formulario.get('email').touched">Formato email no correcto</span><br>
         <label for="password">Contraseña</label>
         <input type="password" name="password" class="form-control" formControlName='password'  >
+        <span class="text-danger" *ngIf="!formulario.get('password').valid && formulario.get('password').touched">Formato password no correcto</span><br>
         <label for="ligas">Liga</label><br>
-        <select [(ngModel)]="objetoLiga" formControlName='selectLiga'>
+        <select [(ngModel)]="objetoLiga" formControlName='selectLiga' required>
            <option value="none" selected >Selecciona una liga</option>
            <option *ngFor="let liga of ligas" [ngValue]="liga" >{{liga.name}}</option>
         </select> 
+        
       </div>
       <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
-      <button type="submit" class="btn btn-primary" >Submit</button>
+      <button type="submit" class="btn btn-primary"  [disabled]="!formulario.valid">Submit</button>
       
       
     </form>

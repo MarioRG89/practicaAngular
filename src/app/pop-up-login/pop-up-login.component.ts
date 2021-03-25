@@ -66,10 +66,14 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   }
 
   private inicarFormulario(){
+    let nombreUsuario='';
+    let emailUsuario='';
+    let passwordUsuario='';
+    let selectUsuario={};
     this.formulario= new FormGroup({
-      'nombre':new FormControl(null,Validators.required),
-      'email': new FormControl(null,[Validators.required,Validators.email]),
-      'password':new FormControl(null,[Validators.required,Validators.minLength(6)]),
+      'nombre':new FormControl(nombreUsuario,Validators.required),
+      'email': new FormControl(emailUsuario,[Validators.required,Validators.email]),
+      'password':new FormControl(passwordUsuario,[Validators.required,Validators.minLength(6)]),
       'selectLiga':new FormControl(null,Validators.required)
     })
   }
