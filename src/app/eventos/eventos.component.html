@@ -1,0 +1,18 @@
+<div class="container">
+
+
+    <table class="table ">
+        <tr>
+            <th scope="col">Equipo</th>
+            <th scope="col">Jugador</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Detalle</th>
+        </tr>
+        <tr *ngFor="let evento of eventos">
+            <td>{{evento.teamName}}</td>
+            <td>{{evento.player}}</td>
+            <td>{{evento.type}}</td>
+            <td>{{evento.detail}}</td>
+        </tr>
+    </table>
+</div>
