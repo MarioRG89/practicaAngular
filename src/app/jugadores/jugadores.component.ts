@@ -20,12 +20,12 @@ export class JugadoresComponent implements OnInit {
     })
     this.listarJugadores();
   }
-  //FILTRAR JUGADORES REPETIDOS
+  //FILTRAR JUGADORES REPETIDOS(No entender porque no filtra)
   listarJugadores(){
     this.peticiones.getJugadores(this.equipoId).subscribe(
         data =>{
           data.api.players.forEach(element => {
-            if(!this.jugadores.includes(element.player_name)){
+            if(!this.jugadores.includes(element.player_id)){
               this.jugadores.push(element);
             }
           });

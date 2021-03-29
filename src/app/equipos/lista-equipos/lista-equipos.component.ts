@@ -9,7 +9,7 @@ import { PeticionesService } from 'src/app/servicios/peticiones.service';
 })
 export class ListaEquiposComponent implements OnInit {
   ligaid:string
-  filterPost:'';
+  filterPost='';
   constructor(private route:ActivatedRoute,private peticiones:PeticionesService) { }
   listaEquipos:[];
   ngOnInit(): void {

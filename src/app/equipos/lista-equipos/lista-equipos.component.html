@@ -4,7 +4,7 @@
 <div class="row">
   
   <ul class="list-group col-xs-6">
-    <li *ngFor="let equipo of listaEquipos " class="list-group-item list-group-item-action">
+    <li *ngFor="let equipo of listaEquipos | filtro:filterPost" class="list-group-item list-group-item-action">
       <img [src]="equipo.logo">
       <a [routerLink]="[ './',equipo.team_id]" >{{equipo.name}}</a>
 

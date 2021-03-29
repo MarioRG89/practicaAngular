@@ -8,7 +8,7 @@ export class FiltroPipe implements PipeTransform {
   transform(value: any,arg:any ): any {
    const resultadoFiltro=[]
    for(const equipo of value){
-     if(equipo.name.indexOf(arg) > -1 || equipo.nombre==''){
+     if(equipo.name.toLowerCase().indexOf(arg)> -1 || equipo.name === ''){
        resultadoFiltro.push(equipo);
      }
    }
