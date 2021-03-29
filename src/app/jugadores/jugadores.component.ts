@@ -12,9 +12,7 @@ export class JugadoresComponent implements OnInit {
   constructor(private route:ActivatedRoute,private peticiones:PeticionesService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params=>{
-      this.equipoId=params['equipo'];
-    })
+    
   
   }
 

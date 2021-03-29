@@ -4,12 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filtro'
 })
 export class FiltroPipe implements PipeTransform {
-
+ //ARREGLAR EL PIPE
   transform(value: any,arg:any ): any {
    const resultadoFiltro=[]
-   for(const filtro of value){
-     if(filtro.nombre.indexOf(arg) > -1 || filtro.nombre==''){
-       resultadoFiltro.push(filtro);
+   for(const equipo of value){
+     if(equipo.name.indexOf(arg) > -1 || equipo.nombre==''){
+       resultadoFiltro.push(equipo);
      }
    }
    return resultadoFiltro;

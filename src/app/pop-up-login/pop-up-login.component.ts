@@ -15,68 +15,66 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   @ViewChild('visualizaModal', { static: false }) contenido: NgbModalRef;
   @Output() enviarDatosUsuario = new EventEmitter<string>();
   @Output() enviarDatosLiga = new EventEmitter<any>();
-  formulario:FormGroup
-  nombre:string='';
-  vermodal:boolean=false;
-  ligaId:string;
-  objetoLiga={};
-  ligas=[];
+  formulario: FormGroup
+  nombre: string = '';
+  vermodal: boolean = false;
+  objetoLiga = {};
+  ligas = [];
   ngOnInit() {
     this.obtenerLigas();
-   this.iniciarFormulario();
-    
+    this.iniciarFormulario();
+
   }
   ngAfterViewInit() {
-    if(!this.vermodal){
+    if (!this.vermodal) {
       this.modalService.open(this.contenido);
     }
-    
-  }
-  
 
-  constructor(private modalService: NgbModal,private peticiones:PeticionesService,private router:Router,private route:ActivatedRoute) { }
+  }
+
+
+  constructor(private modalService: NgbModal, private peticiones: PeticionesService, private router: Router, private route: ActivatedRoute) { }
 
   open() {
     console.log(this.contenido);
     this.modalService.open(this.contenido);
-    
+
   }
-  enviar(modal){
-  
-    this.vermodal=true
+  enviar(modal) {
+
+    this.vermodal = true
     this.enviarDatosUsuario.emit(
       this.nombre
     );
     this.enviarDatosLiga.emit(
       this.objetoLiga
     );
-    if(this.formulario.valid){
+    if (this.formulario.valid) {
       modal.close();
     }
-    this.iraEquipos();
+    this.iraEquipos(this.objetoLiga);
   }
-  obtenerLigas(){
+  obtenerLigas() {
     this.peticiones.getLigas().subscribe(data => {
       for (let index = 0; index < 100; index++) {
-          this.ligas.push(data.api.leagues[index]);
+        this.ligas.push(data.api.leagues[index]);
       }
     });
   }
 
-  private iniciarFormulario(){
-    
-    let selectUsuario={};
-    this.formulario= new FormGroup({
-      'nombre':new FormControl(null,Validators.required),
-      'email': new FormControl(null,[Validators.required,Validators.email]),
-      'password':new FormControl(null,[Validators.required,Validators.minLength(6)]),
-      'selectLiga':new FormControl(null,Validators.required)
+  private iniciarFormulario() {
+
+    let selectUsuario = {};
+    this.formulario = new FormGroup({
+      'nombre': new FormControl(null, Validators.required),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'selectLiga': new FormControl(null, Validators.required)
     })
   }
 
-  iraEquipos(){
-   console.log(this.ligaId);
-    
-   this.router.navigate(["equipos",this.ligaId]);
+  iraEquipos(id) {
+    console.log(id.league_id);
+    this.router.navigate(["equipos", id.league_id]);
   }
 }

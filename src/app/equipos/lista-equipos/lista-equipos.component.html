@@ -1,17 +1,15 @@
 <div class="row">
-  <input class="col-xs-12" type="text" name="filtroBusqueda" placeholder="...." [(ngModel)]="filtroBusqueda">
+  <input class="col-xs-12" type="text" name="filterPost" placeholder="...." [(ngModel)]="filterPost">
 </div>
 <div class="row">
   
-  <div class="list-group col-xs-6">
-    <a [routerLink]="[ './', 2 ]" class="list-group-item list-group-item-action "><img src="">
-      Cras justo odio
-    </a>
-    <a [routerLink]="[ '/jugadores']" *ngFor="let equipo of listaEquipos | filtro:filtroBusqueda" href="#"
-      class="list-group-item list-group-item-action">{{equipo.name}}</a>
-    <a [routerLink]="[ '/jugadores']" class="list-group-item list-group-item-action">Morbi leo risus</a>
-    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-    <a href="#" class="list-group-item list-group-item-action ">Vestibulum at eros</a>
-  </div>
+  <ul class="list-group col-xs-6">
+    <li *ngFor="let equipo of listaEquipos " class="list-group-item list-group-item-action">
+      <img [src]="equipo.logo">
+      <a [routerLink]="[ '/jugadores',equipo.team_id]" >{{equipo.name}}</a>
+
+    </li>
+  
+  </ul>
   <router-outlet></router-outlet>
 </div>
