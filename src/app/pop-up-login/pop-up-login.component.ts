@@ -18,11 +18,11 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   formulario:FormGroup
   nombre:string='';
   vermodal:boolean=false;
-  ligaId:number=1;
+  ligaId:string;
   objetoLiga={};
   ligas=[];
   ngOnInit() {
-    // this.obtenerLigas();
+    this.obtenerLigas();
    this.iniciarFormulario();
     
   }
@@ -56,11 +56,11 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
     this.iraEquipos();
   }
   obtenerLigas(){
-    // this.peticiones.getLigas().subscribe(data => {
-    //   for (let index = 0; index < 100; index++) {
-    //       this.ligas.push(data.api.leagues[index]);
-    //   }
-    // });
+    this.peticiones.getLigas().subscribe(data => {
+      for (let index = 0; index < 100; index++) {
+          this.ligas.push(data.api.leagues[index]);
+      }
+    });
   }
 
   private iniciarFormulario(){

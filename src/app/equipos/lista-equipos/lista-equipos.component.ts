@@ -8,18 +8,20 @@ import { PeticionesService } from 'src/app/servicios/peticiones.service';
   styleUrls: ['./lista-equipos.component.css']
 })
 export class ListaEquiposComponent implements OnInit {
-  ligaid:number
+  ligaid:string
+  filtroBusqueda:'';
   constructor(private route:ActivatedRoute,private peticiones:PeticionesService) { }
   listaEquipos:["a"];
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params=>{
-      this.ligaid=params['liga'];
+    this.route.params.subscribe(params=>{
+      this.ligaid= params['liga'];
+      console.log(this.ligaid);
     })
     this.listarEquipos();
   }
   listarEquipos(){
    this.peticiones.getEquipos(this.ligaid).subscribe(data=>{
-    this.listaEquipos=data.api.teams
+    console.log(data);
    })
   }
 }

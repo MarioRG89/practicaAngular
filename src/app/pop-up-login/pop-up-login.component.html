@@ -20,8 +20,8 @@
         <span class="text-danger" *ngIf="!formulario.get('password').valid && formulario.get('password').touched">Formato password no correcto</span><br>
         <label for="ligas">Liga</label><br>
         <select [(ngModel)]="objetoLiga" formControlName='selectLiga'  required>
-           <option value=1 selected >Selecciona una liga</option>
-           <option *ngFor="let liga of ligas" [ngValue]="liga"  >{{liga.name}}</option>
+           <option  selected >Selecciona una liga</option>
+           <option *ngFor="let liga of ligas" [ngValue]="liga" [ligaId]='liga.league_id' >{{liga.name}}</option>
         </select> 
         
       </div>

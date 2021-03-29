@@ -5,8 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: any,arg:any ): any {
+   const resultadoFiltro=[]
+   for(const filtro of value){
+     if(filtro.nombre.indexOf(arg) > -1 || filtro.nombre==''){
+       resultadoFiltro.push(filtro);
+     }
+   }
+   return resultadoFiltro;
   }
 
 }
