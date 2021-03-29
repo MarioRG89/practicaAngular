@@ -1,0 +1,15 @@
+<div class="row">
+  <input class="col-xs-12" type="text" name="filterPost" placeholder="...." [(ngModel)]="filterPost">
+</div>
+<div class="row">
+  
+  <ul class="list-group col-xs-6">
+    <li *ngFor="let equipo of listaEquipos " class="list-group-item list-group-item-action">
+      <img [src]="equipo.logo">
+      <a [routerLink]="[ '/jugadores',equipo.team_id]" >{{equipo.name}}</a>
+
+    </li>
+  
+  </ul>
+  <router-outlet></router-outlet>
+</div>
