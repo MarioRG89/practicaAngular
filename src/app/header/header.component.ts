@@ -8,11 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input()usuario='';
-  @Input()liga={};
+  @Input()liga:any;
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.liga);
+   
   }
-
+  comprobacion(){
+    
+    if(Object.entries(this.liga).length === 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

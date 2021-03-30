@@ -10,19 +10,28 @@ import { PeticionesService } from 'src/app/servicios/peticiones.service';
 export class ListaEquiposComponent implements OnInit {
   ligaid:string
   filterPost='';
+  teamId: any;
   constructor(private route:ActivatedRoute,private peticiones:PeticionesService) { }
-  listaEquipos:[];
+  listaEquipos=[];
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
       this.ligaid= params['liga'];
-      console.log(this.ligaid);
     })
+
     this.listarEquipos();
   }
   listarEquipos(){
    this.peticiones.getEquipos(this.ligaid).subscribe(data=>{
       this.listaEquipos=data.api.teams;
-      console.log(this.listaEquipos);
    })
+  }
+  mostrarListaJug(id){
+    this.teamId=id;
+    this.scrollIntoView();
+  }
+
+  private scrollIntoView(){
+    const capa = document.getElementById("header");
+    capa.scrollIntoView();
   }
 }

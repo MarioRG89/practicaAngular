@@ -3,16 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { EquiposComponent } from './equipos/equipos.component';
 import { ListaEquiposComponent } from './equipos/lista-equipos/lista-equipos.component';
 import { EventosComponent } from './eventos/eventos.component';
-import { HeaderComponent } from './header/header.component';
-import { JugadoresComponent } from './jugadores/jugadores.component';
+import { JugadoresComponent } from './equipos/lista-equipos/jugadores/jugadores.component';
 import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
 
 const routes: Routes = [
  {path:'',redirectTo:'/equipos',pathMatch:'full'},
   {path:'equipos',component:EquiposComponent},
-  
   {path:'equipos/:liga',component:ListaEquiposComponent,children:[
-   
     {path:':equipo',component:JugadoresComponent}
   ]},
   {path:'eventos',component:EventosComponent},

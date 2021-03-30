@@ -1,15 +1,20 @@
 <div class="row">
-  <input class="col-xs-12" type="text" name="filterPost" placeholder="...." [(ngModel)]="filterPost">
+  <input type="text" name="filterPost" placeholder="...." [(ngModel)]="filterPost">
 </div>
-<div class="row">
+<div id="equiposLiga" class="row">
   
-  <ul class="list-group col-xs-6">
-    <li *ngFor="let equipo of listaEquipos | filtro:filterPost" class="list-group-item list-group-item-action">
+  <ul class="list-group col-xs-">
+   
+    <li *ngFor="let equipo of listaEquipos | filtro:filterPost" class="list-group-item list-group-item-action" [ngClass]="{'active': teamId === equipo.team_id }">
+     
+      <div>
       <img [src]="equipo.logo">
-      <a [routerLink]="[ './',equipo.team_id]" >{{equipo.name}}</a>
-
+      </div>
+      <div class="nombreEquipo">
+        <a  (click)="mostrarListaJug(equipo.team_id)" >{{equipo.name}}</a>
+      </div>
+      
     </li>
-  
   </ul>
-  <router-outlet></router-outlet>
+  <app-jugadores (borrarTeamId)="teamId=$event" [teamId]="teamId" ></app-jugadores>
 </div>

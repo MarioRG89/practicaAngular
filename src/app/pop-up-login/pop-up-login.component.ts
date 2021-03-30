@@ -1,7 +1,7 @@
 
 import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { PeticionesService } from '../servicios/peticiones.service';
 
@@ -15,10 +15,8 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   @ViewChild('visualizaModal', { static: false }) contenido: NgbModalRef;
   @Output() enviarDatosUsuario = new EventEmitter<string>();
   @Output() enviarDatosLiga = new EventEmitter<any>();
-  formulario: FormGroup
-  nombre: string = '';
+  formulario: FormGroup 
   vermodal: boolean = false;
-  objetoLiga = {};
   ligas = [];
   ngOnInit() {
     this.obtenerLigas();
@@ -42,17 +40,16 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   }
   enviar(modal) {
 
-    this.vermodal = true
     this.enviarDatosUsuario.emit(
-      this.nombre
+      this.formulario.get('nombre').value
     );
     this.enviarDatosLiga.emit(
-      this.objetoLiga
+      this.formulario.get('selectLiga').value
     );
     if (this.formulario.valid) {
       modal.close();
     }
-    this.iraEquipos(this.objetoLiga);
+    this.iraEquipos();
   }
   obtenerLigas() {
     this.peticiones.getLigas().subscribe(data => {
@@ -64,7 +61,6 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
 
   private iniciarFormulario() {
 
-    let selectUsuario = {};
     this.formulario = new FormGroup({
       'nombre': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
@@ -73,8 +69,8 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
     })
   }
 
-  iraEquipos(id) {
-    console.log(id.league_id);
-    this.router.navigate(["equipos", id.league_id]);
+  iraEquipos() {
+    
+    this.router.navigate(["equipos",this.formulario.get('selectLiga').value.league_id]);
   }
 }

@@ -1,0 +1,39 @@
+.list-group{
+    flex: 1 0 25%;
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+li div{
+    flex-basis: 40%;
+}
+li div.nombreEquipo{
+    flex-basis: 60%;
+}
+.list-group-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    align-items: center;
+    width: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    cursor: pointer;
+    
+}
+.list-group-item:hover{
+    opacity: 0.5;
+}
+.active{
+    background-color: aquamarine;
+}

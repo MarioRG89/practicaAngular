@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+<nav id="header" class="navbar navbar-expand-lg navbar-light bg-light" >
         <a class="navbar-brand ">
                 <img  class="navbar-brand img-icon" 
                 src="https://image.freepik.com/vector-gratis/diseno-ejemplo-icono-vector-plantilla-logotipo-infinito_6543-169.jpg"width="100" height="100"
@@ -7,7 +7,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-        <div *ngIf="liga" class="collapse navbar-collapse">
+        <div *ngIf="!comprobacion() " class="collapse navbar-collapse ">
             <ul class="navbar-nav">
               <li class="nav-item ">
                 <a class="nav-link">
@@ -15,10 +15,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" >{{liga.name}}<span *ngIf="!liga.name">No se encontro liga</span></a>
+                <a class="nav-link" >{{liga.name}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" >Usuario :{{usuario}} <span *ngIf="!usuario">No se encontro usuario</span></a>
+                <a class="nav-link" >Usuario : {{usuario}}</a>
               </li>
             </ul>
         </div>
