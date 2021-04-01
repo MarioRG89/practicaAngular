@@ -1,10 +1,38 @@
 <div *ngIf="teamId">
   <ul class="list-group col-xs-6">
-    <li *ngFor="let jugador of filtraJugadores() " class="list-group-item list-group-item-action">
-      <a>{{jugador.player_name}}</a>
+    <li *ngFor="let jugador of filtraJugadores() " (click)="seleccionarJugador(jugador.player_id)" class="list-group-item list-group-item-action" [ngClass]="{'active': jugadorId === jugador.player_id }">
+      <a  >{{jugador.player_name}}</a>
     </li>
   </ul>
-  <button class="btn btn-primary">Añadir jugador</button>
-  <button class="btn btn-danger">Borrar jugador</button>
+  <button class="btn btn-primary" (click)="anadirJugador()" >Añadir jugador</button>
+  <button class="btn btn-danger" (click)="borraJugador()" [disabled]="!jugadorId">Borrar jugador</button>
   <button class="btn btn-warning" (click)="cerrarJugadores()" >Cerrar</button>
 </div>
+
+<ng-template #visualizaModal let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">Añadir nuevo jugador </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form  >
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" class="form-control"  >
+      
+        <label for="email">Email</label>
+        <input type="text" name="email" class="form-control"  >
+       
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" class="form-control"   >
+       
+        <label for="ligas">Liga</label><br>
+        
+      </div>
+      <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+      <button type="submit" class="btn btn-primary" >Enviar</button>
+    </form>
+  </div>
+</ng-template>

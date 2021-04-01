@@ -12,7 +12,9 @@ import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
 import { EventosComponent } from './eventos/eventos.component';
 import{HttpClientModule} from '@angular/common/http';
 import { ListaEquiposComponent } from './equipos/lista-equipos/lista-equipos.component';
-import { FiltroPipe } from './pipes/filtro.pipe'
+import { FiltroPipe } from './pipes/filtro.pipe';
+import { NuevoJugadorComponent } from './equipos/lista-equipos/jugadores/nuevo-jugador/nuevo-jugador.component';
+
 
 
 
@@ -27,7 +29,8 @@ import { FiltroPipe } from './pipes/filtro.pipe'
     PopUpLoginComponent,
     EventosComponent,
     ListaEquiposComponent,
-    FiltroPipe
+    FiltroPipe,
+    NuevoJugadorComponent
   ],
   imports: [
     BrowserModule,

@@ -37,3 +37,6 @@ li div.nombreEquipo{
 .active{
     background-color: aquamarine;
 }
+input{
+    width: 100%;
+}

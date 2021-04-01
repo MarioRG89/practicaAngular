@@ -11,6 +11,7 @@ export class ListaEquiposComponent implements OnInit {
   ligaid:string
   filterPost='';
   teamId: any;
+  teamName:any;
   constructor(private route:ActivatedRoute,private peticiones:PeticionesService) { }
   listaEquipos=[];
   ngOnInit(): void {
@@ -25,8 +26,9 @@ export class ListaEquiposComponent implements OnInit {
       this.listaEquipos=data.api.teams;
    })
   }
-  mostrarListaJug(id){
-    this.teamId=id;
+  mostrarListaJug(equipo){
+    this.teamId=equipo.team_id;
+    this.teamName=equipo.name;
     this.scrollIntoView();
   }
 
