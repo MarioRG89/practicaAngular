@@ -1,6 +1,7 @@
 <div *ngIf="teamId">
   <ul class="list-group col-xs-6">
-    <li *ngFor="let jugador of filtraJugadores() " (click)="seleccionarJugador(jugador.player_id)" class="list-group-item list-group-item-action" [ngClass]="{'active': jugadorId === jugador.player_id }">
+    <input type="text" name="filtroJugador" placeholder="...." [(ngModel)]="filtroJugador">
+    <li *ngFor="let jugador of filtraJugadores() | filtroJugador:filtroJugador " (click)="seleccionarJugador(jugador.player_id)" class="list-group-item list-group-item-action" [ngClass]="{'active': jugadorId === jugador.player_id }">
       <a  >{{jugador.player_name}}</a>
     </li>
   </ul>

@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ToastServiceService } from 'src/app/servicios/toast-service.service';
 import { PeticionesService } from '../../../servicios/peticiones.service';
 
 @Component({
@@ -23,9 +24,9 @@ export class JugadoresComponent implements OnInit, OnChanges {
   @Output() borrarTeamId= new EventEmitter<any>();
   jugadores = [];
   jugadorId:any;
-  formulario:FormGroup;
+  filtroJugador='';
   constructor(
-    private peticiones: PeticionesService,private modalService: NgbModal
+    private peticiones: PeticionesService,private modalService: NgbModal,private toastService:ToastServiceService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -76,9 +77,14 @@ export class JugadoresComponent implements OnInit, OnChanges {
   borraJugador(){
       if(this.jugadorId){
         this.peticiones.deleteJugador(this.jugadorId);
+        this.showDanger();
       }
   }
   anadirJugador(){
       this.modalService.open(this.contenido);
+  }
+  showDanger() {
+    console.log("hola");
+    this.toastService.show("has eliminado un jugador");
   }
 }

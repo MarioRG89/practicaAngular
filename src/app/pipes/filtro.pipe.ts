@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filtro'
 })
 export class FiltroPipe implements PipeTransform {
- //ARREGLAR EL PIPE
   transform(value: any,arg:any ): any {
    const resultadoFiltro=[]
    for(const equipo of value){

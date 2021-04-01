@@ -14,6 +14,8 @@ import{HttpClientModule} from '@angular/common/http';
 import { ListaEquiposComponent } from './equipos/lista-equipos/lista-equipos.component';
 import { FiltroPipe } from './pipes/filtro.pipe';
 import { NuevoJugadorComponent } from './equipos/lista-equipos/jugadores/nuevo-jugador/nuevo-jugador.component';
+import { FiltroJugadorPipe } from './pipes/filtro-jugador.pipe';
+
 
 
 
@@ -30,7 +32,9 @@ import { NuevoJugadorComponent } from './equipos/lista-equipos/jugadores/nuevo-j
     EventosComponent,
     ListaEquiposComponent,
     FiltroPipe,
-    NuevoJugadorComponent
+    NuevoJugadorComponent,
+    FiltroJugadorPipe,
+    
   ],
   imports: [
     BrowserModule,
