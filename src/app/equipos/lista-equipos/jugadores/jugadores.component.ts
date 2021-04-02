@@ -8,9 +8,10 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { ToastServiceService } from 'src/app/servicios/toast-service.service';
+import { ToastrService } from 'ngx-toastr';
+
+
+
 import { PeticionesService } from '../../../servicios/peticiones.service';
 
 @Component({
@@ -19,14 +20,16 @@ import { PeticionesService } from '../../../servicios/peticiones.service';
   styleUrls: ['./jugadores.component.css'],
 })
 export class JugadoresComponent implements OnInit, OnChanges {
-  @ViewChild('visualizaModal', { static: false }) contenido: NgbModalRef;
+
   @Input() teamId: string;
   @Output() borrarTeamId= new EventEmitter<any>();
   jugadores = [];
   jugadorId:any;
+  abrirModal=false;
   filtroJugador='';
   constructor(
-    private peticiones: PeticionesService,private modalService: NgbModal,private toastService:ToastServiceService
+    private peticiones: PeticionesService,
+    private toastr: ToastrService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -76,15 +79,21 @@ export class JugadoresComponent implements OnInit, OnChanges {
 
   borraJugador(){
       if(this.jugadorId){
+        console.log('hola')
         this.peticiones.deleteJugador(this.jugadorId);
-        this.showDanger();
+        this.showSucces();
+      }else{
+        this.showDanger()
       }
   }
   anadirJugador(){
-      this.modalService.open(this.contenido);
+     this.abrirModal=true;
   }
-  showDanger() {
-    console.log("hola");
-    this.toastService.show("has eliminado un jugador");
-  }
+   showSucces(){
+     this.toastr.success('Has Añadido un jugador')
+
+   }
+   showDanger(){
+     this.toastr.error('No se ha podido realizar la peticion')
+   }
 }

@@ -15,6 +15,8 @@ import { ListaEquiposComponent } from './equipos/lista-equipos/lista-equipos.com
 import { FiltroPipe } from './pipes/filtro.pipe';
 import { NuevoJugadorComponent } from './equipos/lista-equipos/jugadores/nuevo-jugador/nuevo-jugador.component';
 import { FiltroJugadorPipe } from './pipes/filtro-jugador.pipe';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -41,7 +43,9 @@ import { FiltroJugadorPipe } from './pipes/filtro-jugador.pipe';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() ,
    
   ],
   providers: [],

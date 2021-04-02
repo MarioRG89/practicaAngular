@@ -1,34 +1,16 @@
-<ng-template #visualizaModal let-modal >
-    <div class="modal-header">
-      <h4 class="modal-title">Inicio de sesion usuario</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="formulario" >
-        <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" name="name" class="form-control" formControlName='nombre'  >
-        
-          <label for="email">Email</label>
-          <input type="text" name="email" class="form-control" formControlName='email' >
-         
-          <label for="password">Contraseña</label>
-          <input type="password" name="password" class="form-control" formControlName='password'  >
-         
-          <label for="ligas">Liga</label><br>
-          
-        </div>
-        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
-        <button type="submit" class="btn btn-primary" (click)="enviar(modal)" >Enviar</button>
-        
-        
-      </form>
-    </div>
-    
-    
-  </ng-template>
- 
+
+<ng-template #modalJugador let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">Inicio de sesion usuario</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   hola
+  </div>
+  
+  
+</ng-template>
 
  
