@@ -6,10 +6,9 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewChild,
 } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-
+import {players}  from '../../../../assets/players';
 
 
 import { PeticionesService } from '../../../servicios/peticiones.service';
@@ -26,10 +25,13 @@ export class JugadoresComponent implements OnInit, OnChanges {
   jugadores = [];
   jugadorId:any;
   abrirModal=false;
+  abrirModalBorrar=false;
+  arrayJug=[];
   filtroJugador='';
+  borradoJugador=false;
   constructor(
     private peticiones: PeticionesService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -42,13 +44,16 @@ export class JugadoresComponent implements OnInit, OnChanges {
 
   listarJugadores() {
     if (this.teamId) {
-      this.peticiones.getJugadores(this.teamId).subscribe((data) => {
-        this.jugadores = [...data.api.players];
-      });
+      // this.peticiones.getJugadores(this.teamId).subscribe((data) => {
+      //   this.jugadores = [...data.api.players];
+      //   this.arrayJug=this.filtraJugadores().slice();
+      // });
+     this.jugadores=players;
+     this.jugadores=this.filtraJugadores();
+   
     }
   }
 
-  
   filtraJugadores() {
     const arrayJug = [];
     this.jugadores
@@ -77,23 +82,21 @@ export class JugadoresComponent implements OnInit, OnChanges {
     this.borrarTeamId.emit(this.teamId);
   }
 
-  borraJugador(){
-      if(this.jugadorId){
-        console.log('hola')
-        this.peticiones.deleteJugador(this.jugadorId);
-        this.showSucces();
-      }else{
-        this.showDanger()
-      }
+  borraJugador(borradoJugador){
+    console.log(this.borradoJugador);
+    this.abrirModalBorrar=true;
+    if(borradoJugador){
+      this.jugadores.forEach((element,index) => {
+        if(element.player_id==this.jugadorId){
+          this.jugadores.splice(element,1);
+          this.borradoJugador=false;
+        }
+      });
+    }
   }
   anadirJugador(){
      this.abrirModal=true;
   }
-   showSucces(){
-     this.toastr.success('Has Añadido un jugador')
-
-   }
-   showDanger(){
-     this.toastr.error('No se ha podido realizar la peticion')
-   }
+ 
+   
 }

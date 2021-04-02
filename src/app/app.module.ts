@@ -17,6 +17,7 @@ import { NuevoJugadorComponent } from './equipos/lista-equipos/jugadores/nuevo-j
 import { FiltroJugadorPipe } from './pipes/filtro-jugador.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BorrarJugadorComponent } from './equipos/lista-equipos/jugadores/borrar-jugador/borrar-jugador.component';
 
 
 
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FiltroPipe,
     NuevoJugadorComponent,
     FiltroJugadorPipe,
+    BorrarJugadorComponent,
     
   ],
   imports: [
