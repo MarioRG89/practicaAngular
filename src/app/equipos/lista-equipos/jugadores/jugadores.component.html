@@ -9,5 +9,5 @@
   <button class="btn btn-danger" (click)="borraJugador()" [disabled]="!jugadorId">Borrar jugador</button>
   <button class="btn btn-warning" (click)="cerrarJugadores()" >Cerrar</button>
 </div>
-<app-nuevo-jugador [abrirModal]="abrirModal" (modalCierre)="abrirModal=$event" *ngIf="abrirModal" ></app-nuevo-jugador>
+<app-nuevo-jugador [jugadores]="jugadores" [abrirModal]="abrirModal" (objetoJugador)="jugadores=$event" (modalCierre)="abrirModal=$event" *ngIf="abrirModal" ></app-nuevo-jugador>
 <app-borrar-jugador [abrirModalBorrar]="abrirModalBorrar" (modalCierreBorrar)="borraJugador($event)" (modalCierreJugador)="abrirModalBorrar=$event" *ngIf="abrirModalBorrar"></app-borrar-jugador>

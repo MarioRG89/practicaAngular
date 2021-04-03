@@ -24,6 +24,7 @@ export class JugadoresComponent implements OnInit, OnChanges {
   @Output() borrarTeamId= new EventEmitter<any>();
   jugadores = [];
   jugadorId:any;
+  objetoJugador:any;
   abrirModal=false;
   abrirModalBorrar=false;
   arrayJug=[];
@@ -44,12 +45,13 @@ export class JugadoresComponent implements OnInit, OnChanges {
 
   listarJugadores() {
     if (this.teamId) {
-      // this.peticiones.getJugadores(this.teamId).subscribe((data) => {
-      //   this.jugadores = [...data.api.players];
-      //   this.arrayJug=this.filtraJugadores().slice();
-      // });
-     this.jugadores=players;
-     this.jugadores=this.filtraJugadores();
+      this.peticiones.getJugadores(this.teamId).subscribe((data) => {
+        this.jugadores = [...data.api.players];
+        this.jugadores=this.filtraJugadores().slice();
+        console.log(this.jugadores);
+      });
+    //  this.jugadores=players;
+    //  this.jugadores=this.filtraJugadores();
    
     }
   }
@@ -75,6 +77,7 @@ export class JugadoresComponent implements OnInit, OnChanges {
   
   seleccionarJugador(idJugador){
     this.jugadorId=idJugador;
+    console.log(this.jugadorId);
   }
 
   cerrarJugadores() {
@@ -83,12 +86,13 @@ export class JugadoresComponent implements OnInit, OnChanges {
   }
 
   borraJugador(borradoJugador){
-    console.log(this.borradoJugador);
     this.abrirModalBorrar=true;
     if(borradoJugador){
       this.jugadores.forEach((element,index) => {
         if(element.player_id==this.jugadorId){
+          console.log(this.jugadorId);
           this.jugadores.splice(element,1);
+          this.jugadorId=null;
           this.borradoJugador=false;
         }
       });
@@ -96,6 +100,7 @@ export class JugadoresComponent implements OnInit, OnChanges {
   }
   anadirJugador(){
      this.abrirModal=true;
+   
   }
  
    
