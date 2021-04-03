@@ -91,7 +91,7 @@ export class JugadoresComponent implements OnInit, OnChanges {
       this.jugadores.forEach((element,index) => {
         if(element.player_id==this.jugadorId){
           console.log(this.jugadorId);
-          this.jugadores.splice(element,1);
+          this.jugadores.splice(index,1);
           this.jugadorId=null;
           this.borradoJugador=false;
         }
