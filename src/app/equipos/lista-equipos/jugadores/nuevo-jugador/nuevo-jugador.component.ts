@@ -55,7 +55,7 @@ export class NuevoJugadorComponent implements OnInit,AfterViewInit {
   }
   cerraModal(modal){
     this.abrirModal= false;
-    this.toastr.warning('No se ha introducido el jugado,ha cancelado la accion');
+    this.toastr.warning('No se ha introducido el jugador,ha cancelado la accion');
     modal.close();
     this.modalCierre.emit(this.abrirModal);
   }
