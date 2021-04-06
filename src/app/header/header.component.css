@@ -1,3 +1,9 @@
 .navbar.navbar-default{
     margin-bottom: 0;
 }
+.nav-item{
+    width: 33%;
+}
+.login{
+    width: 100%;
+}

@@ -48,7 +48,6 @@ import { BorrarJugadorComponent } from './equipos/lista-equipos/jugadores/borrar
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot() ,
-   
   ],
   providers: [],
   bootstrap: [AppComponent]
