@@ -2,7 +2,7 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { PeticionesService } from '../servicios/peticiones.service';
 
 
@@ -34,8 +34,12 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
   constructor(private modalService: NgbModal, private peticiones: PeticionesService, private router: Router, private route: ActivatedRoute) { }
 
   open() {
-    console.log(this.contenido);
-    this.modalService.open(this.contenido);
+    let ngbModalOptions : NgbModalOptions={
+      backdrop:'static',
+      keyboard: false,
+      
+    }
+    this.modalService.open(this.contenido,ngbModalOptions);
 
   }
   enviar(modal) {

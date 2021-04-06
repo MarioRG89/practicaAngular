@@ -1,7 +1,7 @@
 <div class="row">
-  <input type="text" name="filterPost" placeholder="...." [(ngModel)]="filterPost">
+  <input type="text" name="filterPost" placeholder="Introduzca el nombre de un equipo ...." [(ngModel)]="filterPost">
 </div>
-<h3 *ngIf="teamName!=undefined">Ha seleccionado el {{teamName}}</h3>
+<h3 *ngIf="teamId!=undefined">Jugadores del {{teamName}}</h3>
 <div id="equiposLiga" class="row">
   <ul class="list-group col-xs-">
    
@@ -15,6 +15,6 @@
       </div>
       
     </li>
-  </ul>
+  </ul><hr>
   <app-jugadores (borrarTeamId)="teamId=$event" [teamId]="teamId" ></app-jugadores>
 </div>

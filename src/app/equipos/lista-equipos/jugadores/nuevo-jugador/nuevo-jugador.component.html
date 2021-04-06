@@ -12,7 +12,7 @@
         <label for="name">Nombre</label>
         <input type="text" name="name" class="form-control" formControlName='nombre'  >
         <span class="text-danger" *ngIf="!formularioJugador.get('nombre').valid && formularioJugador.get('nombre').touched">No ha introducido el nombre</span><br>
-        <label for="edad">Fecha Naciemientp</label>
+        <label for="edad">Fecha Naciemiento</label>
         <input type="date" name="fechaNacimiento" class="form-control" formControlName='fechaNacimiento' >
         <span class="text-danger" *ngIf="!formularioJugador.get('fechaNacimiento').valid && formularioJugador.get('fechaNacimiento').touched">No ha introducido una fecha</span><br>
         <label for="ciudad">Ciudad</label>

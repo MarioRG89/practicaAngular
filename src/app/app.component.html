@@ -1,10 +1,10 @@
 <div class="container">
 
   <app-header [usuario]="nombreSesion" [liga]="objetoLiga"></app-header>
-  <app-menu [liga]="objetoLiga"></app-menu>
-  <router-outlet></router-outlet>
+  <app-menu [liga]="objetoLiga"  *ngIf="nombreSesion===''? false : true"></app-menu>
+  <router-outlet *ngIf="nombreSesion===''? false : true"></router-outlet>
   <app-pop-up-login  (enviarDatosUsuario)="guardarDatos($event)" (enviarDatosLiga)="guardarIdLiga($event)"></app-pop-up-login>
-  <app-footer></app-footer>
+  <app-footer *ngIf="nombreSesion===''? false : true"></app-footer>
 
 
 </div>

@@ -9,7 +9,8 @@ import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
 const routes: Routes = [
  {path:'',redirectTo:'/equipos',pathMatch:'full'},
   {path:'equipos',component:EquiposComponent},
-  {path:'equipos/:liga',component:ListaEquiposComponent,children:[
+  {path:'equipos/:liga',component:ListaEquiposComponent,
+  children:[
     {path:':equipo',component:JugadoresComponent}
   ]},
   {path:'eventos',component:EventosComponent},
