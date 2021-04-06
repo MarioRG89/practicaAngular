@@ -47,8 +47,7 @@ export class JugadoresComponent implements OnInit, OnChanges {
     if (this.teamId) {
       this.peticiones.getJugadores(this.teamId).subscribe((data) => {
         this.jugadores = [...data.api.players];
-        this.jugadores=this.filtraJugadores().slice();
-        console.log(this.jugadores);
+        this.jugadores=this.filtraJugadores().slice();   
       });
     //  this.jugadores=players;
     //  this.jugadores=this.filtraJugadores();
@@ -77,7 +76,6 @@ export class JugadoresComponent implements OnInit, OnChanges {
   
   seleccionarJugador(idJugador){
     this.jugadorId=idJugador;
-    console.log(this.jugadorId);
   }
 
   cerrarJugadores() {
@@ -90,7 +88,6 @@ export class JugadoresComponent implements OnInit, OnChanges {
     if(borradoJugador){
       this.jugadores.forEach((element,index) => {
         if(element.player_id==this.jugadorId){
-          console.log(this.jugadorId);
           this.jugadores.splice(index,1);
           this.jugadorId=null;
           this.borradoJugador=false;

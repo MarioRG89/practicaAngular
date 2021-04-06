@@ -7,3 +7,12 @@
 .login{
     width: 100%;
 }
+@media (max-width: 1000px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+}

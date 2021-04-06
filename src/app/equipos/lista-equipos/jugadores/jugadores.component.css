@@ -5,3 +5,9 @@
 input{
     width: 100%;
 }
+@media (max-width: 700px){
+
+    .divJugadores{
+        width: 100%;
+    }
+}
