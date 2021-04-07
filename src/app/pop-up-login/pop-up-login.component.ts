@@ -38,6 +38,7 @@ export class PopUpLoginComponent implements OnInit, AfterViewInit {
       backdrop:'static',
       keyboard: false,
       
+      
     }
     this.modalService.open(this.contenido,ngbModalOptions);
 

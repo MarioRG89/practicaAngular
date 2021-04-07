@@ -25,7 +25,7 @@ export class BorrarJugadorComponent implements OnInit {
     this.borradoJugador= true;
     this.modalCierreBorrar.emit(true);
     this.modalCierreJugador.emit(this.abrirModalBorrar);
-    this.toastr.success("Se ha elimando el jugador con exito");
+    this.toastr.success("Se ha eliminado el jugador con exito");
     modal.close()
   }
   cancelar(modal){
@@ -33,7 +33,7 @@ export class BorrarJugadorComponent implements OnInit {
     this.borradoJugador= false;
      this.modalCierreBorrar.emit(false);
      this.modalCierreJugador.emit(this.abrirModalBorrar);
-     this.toastr.warning("No se ha elimnado el jugado,acepte para eliminarlo")
+     this.toastr.warning("No se ha eliminado el jugado,acepte para eliminarlo")
      modal.close();
 
   }

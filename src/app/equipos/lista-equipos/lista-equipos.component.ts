@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PeticionesService } from 'src/app/servicios/peticiones.service';
 
@@ -11,6 +11,9 @@ export class ListaEquiposComponent implements OnInit {
   ligaid:string
   filterPost='';
   teamId: any;
+  @Output() enviarTeamID = new EventEmitter<any>();
+  @Output() enviarTeamName = new EventEmitter<any>();
+
   teamName:any;
   constructor(private route:ActivatedRoute,private peticiones:PeticionesService) { }
   listaEquipos=[];
@@ -29,6 +32,8 @@ export class ListaEquiposComponent implements OnInit {
   mostrarListaJug(equipo){
     this.teamId=equipo.team_id;
     this.teamName=equipo.name;
+    this.enviarTeamID.emit(this.teamId);
+    this.enviarTeamName.emit(this.teamName);
     this.scrollIntoView();
   }
 

@@ -1,20 +1,24 @@
-<div class="row">
-  <input type="text" name="filterPost" placeholder="Introduzca el nombre de un equipo ...." [(ngModel)]="filterPost">
-</div>
-<h3 *ngIf="teamId!=undefined">Jugadores del {{teamName}}</h3>
-<div id="equiposLiga" class="row">
-  <ul class="list-group col-xs-">
-   
-    <li *ngFor="let equipo of listaEquipos | filtro:filterPost" class="list-group-item list-group-item-action" [ngClass]="{'active': teamId === equipo.team_id }">
+<div class="container" >
+  <div class="row">
+    <input type="text" name="filterPost" placeholder="Introduzca el nombre de un equipo ...." [(ngModel)]="filterPost">
+  </div>
+  <h3 *ngIf="teamId!=undefined">Jugadores del {{teamName}}</h3>
+  <div id="equiposLiga" class="row" >
+    <ul class="list-group col-xs-">
      
-      <div>
-      <img [src]="equipo.logo">
-      </div>
-      <div class="nombreEquipo">
-        <a  (click)="mostrarListaJug(equipo)" >{{equipo.name}}</a>
-      </div>
-      
-    </li>
-  </ul><hr>
-  <app-jugadores class="listaJugadores" (borrarTeamId)="teamId=$event" [teamId]="teamId" ></app-jugadores>
+      <li *ngFor="let equipo of listaEquipos | filtro:filterPost" class="list-group-item list-group-item-action" [ngClass]="{'active': teamId === equipo.team_id }" >
+       
+        <div>
+        <img [src]="equipo.logo">
+        </div>
+        <div class="nombreEquipo">
+          <a  (click)="mostrarListaJug(equipo)" >{{equipo.name}}</a>
+        </div>
+        
+      </li>
+    </ul><hr>
+    
+  </div>
+
+
 </div>

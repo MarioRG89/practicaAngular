@@ -1,0 +1,11 @@
+.listaEquipos{
+    display: flex;
+    
+}
+@media (max-width: 1000px){
+    .listaEquipos{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+

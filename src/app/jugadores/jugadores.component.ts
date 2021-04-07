@@ -8,10 +8,10 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import {players}  from '../../../../assets/players';
 
 
-import { PeticionesService } from '../../../servicios/peticiones.service';
+
+import { PeticionesService } from '../servicios/peticiones.service';
 
 @Component({
   selector: 'app-jugadores',
@@ -41,7 +41,8 @@ export class JugadoresComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   listarJugadores() {
     if (this.teamId) {
