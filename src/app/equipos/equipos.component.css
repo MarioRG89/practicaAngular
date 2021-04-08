@@ -2,6 +2,10 @@
     display: flex;
     
 }
+.listaJugadores{
+    width: 50%;
+    margin-top: 3px;
+}
 h3{
     text-align: center;
 }

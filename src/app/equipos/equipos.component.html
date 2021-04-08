@@ -3,7 +3,7 @@
     <div>
         <app-lista-equipos (enviarTeamID)="guardarTeamID($event)" (enviarTeamName)="equipoTeamName=$event" [teamId]="equipoteamId" ></app-lista-equipos>
     </div>
-   <div class="listaJugadores">
+   <div class="listaJugadores" *ngIf="equipoteamId!==null">
         <app-jugadores   (borrarTeamId)="equipoteamId=$event" [teamId]="equipoteamId"></app-jugadores>
    </div>
 </div>
