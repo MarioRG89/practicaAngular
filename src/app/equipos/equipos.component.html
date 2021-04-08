@@ -1,6 +1,6 @@
 <div class="listaEquipos">
     <div>
-        <app-lista-equipos (enviarTeamID)="guardarTeamID($event)" (enviarTeamName)="equipoTeamName=$event" ></app-lista-equipos>
+        <app-lista-equipos (enviarTeamID)="guardarTeamID($event)" [teamId]="equipoteamId" ></app-lista-equipos>
     </div>
    <div class="listaJugadores">
         <app-jugadores   (borrarTeamId)="equipoteamId=$event" [teamId]="equipoteamId" ></app-jugadores>

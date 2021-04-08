@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PeticionesService } from 'src/app/servicios/peticiones.service';
 
@@ -10,7 +10,8 @@ import { PeticionesService } from 'src/app/servicios/peticiones.service';
 export class ListaEquiposComponent implements OnInit {
   ligaid:string
   filterPost='';
-  teamId: any;
+  @Input() teamId: any;
+  teamSelected='';
   @Output() enviarTeamID = new EventEmitter<any>();
   @Output() enviarTeamName = new EventEmitter<any>();
 
