@@ -1,9 +1,8 @@
-<div class="container" >
+<div class="container"  [ngClass]="{'movil':teamId!==null}" >
   <div class="row">
     <input type="text" name="filterPost" placeholder="Introduzca el nombre de un equipo ...." [(ngModel)]="filterPost">
   </div>
-  <h3 *ngIf="teamId!=null">Jugadores del {{teamName}}</h3>
-  <div id="equiposLiga"  [ngClass]="{'movil':teamId!==null}"  >
+  <div id="equiposLiga"   >
     <ul class="list-group col-xs-">
      
       <li *ngFor="let equipo of listaEquipos | filtro:filterPost" class="list-group-item list-group-item-action" [ngClass]="{'active': teamId === equipo.team_id }" >

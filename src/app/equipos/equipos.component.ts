@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equipos.component.css']
 })
 export class EquiposComponent implements OnInit {
-  equipoteamId:any
-  equipoTeamName='';
+  equipoteamId=null;
+  equipoTeamName:string;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,13 +15,6 @@ export class EquiposComponent implements OnInit {
   guardarTeamID(id){
     this.equipoteamId=id;
   }
-
-  cambiarEstilo(){
   
-  if(this.equipoTeamName!=''){
-    return true;
-  }else{
-    return false;
-  }
-  }
+ 
 }

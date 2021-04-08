@@ -31,6 +31,7 @@ export class ListaEquiposComponent implements OnInit {
    })
   }
   mostrarListaJug(equipo){
+    console.log(equipo.name);
     this.teamId=equipo.team_id;
     this.teamName=equipo.name;
     this.enviarTeamID.emit(this.teamId);

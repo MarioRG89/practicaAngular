@@ -1,9 +1,10 @@
+<h3 *ngIf="equipoteamId!=null">Jugadores del {{equipoTeamName}}</h3>
 <div class="listaEquipos">
     <div>
-        <app-lista-equipos (enviarTeamID)="guardarTeamID($event)" [teamId]="equipoteamId" ></app-lista-equipos>
+        <app-lista-equipos (enviarTeamID)="guardarTeamID($event)" (enviarTeamName)="equipoTeamName=$event" [teamId]="equipoteamId" ></app-lista-equipos>
     </div>
    <div class="listaJugadores">
-        <app-jugadores   (borrarTeamId)="equipoteamId=$event" [teamId]="equipoteamId" ></app-jugadores>
+        <app-jugadores   (borrarTeamId)="equipoteamId=$event" [teamId]="equipoteamId"></app-jugadores>
    </div>
 </div>
 

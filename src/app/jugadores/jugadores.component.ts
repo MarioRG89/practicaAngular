@@ -19,7 +19,6 @@ import { PeticionesService } from '../servicios/peticiones.service';
   styleUrls: ['./jugadores.component.css'],
 })
 export class JugadoresComponent implements OnInit, OnChanges {
-
   @Input() teamId: string;
   @Output() borrarTeamId= new EventEmitter<any>();
   jugadores = [];
